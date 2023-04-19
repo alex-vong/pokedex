@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <meta
+      name="og:description"
+      content="Discover the world of Pokémon with this powerful Pokédex - Powered by the Official Pokémon API and Built by Alex Vong"
+    />
+    <meta
+      property="og:title"
+      content="Pokédex: Your Ultimate Pokémon Encyclopedia"
+    />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="[[]]" />
+    <meta property="og:image:type" content="[[]]" />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="src/pokeball-favicon.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="row">
+    <!--Setup Loading Div-->
+
+    <div id="loading-div">
+      <img src="src/pokeball-icon.png" class="loading-ball" />
+    </div>
+
+    <!--Search Bar and render search pokemon-->
+    <div id="pokedex-list" class="column">
+      <!--Search Bar-->
+      <div id="search-bar-container" class="row container margin-40">
+        <input
+          id="search-input"
+          onkeydown="search()"
+          placeholder="Search Pokemon"
+        />
+        <div id="start-search-button" class="center">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+
+      <div id="pokedex-list-render-container">
+        <!--Render here-->
+      </div>
+    </div>
+
+    <!--responsive current pokemon-->
+    <div id="current-pokemon-responsive-background" class="hide"></div>
+    <div id="current-pokemon-responsive-close" class="hide">
+      <img src="src/close-icon.png" />
+    </div>
+
+    <!--current selected pokemon-->
+    <div id="current-pokemon-container" class="container column center">
+      <img id="current-pokemon-image" src="src/pokeball-icon.png" />
+
+      <!--Info-->
+      <div id="current-pokemon-info" class="hide">
+        <!--Id-->
+        <span id="current-pokemon-id" class="font-size-12 bold"></span>
+
+        <!--name-->
+        <h2 id="current-pokemon-name"></h2>
+
+        <!--types-->
+        <div id="current-pokemon-types" class="row center"></div>
+
+        <!--description-->
+        <h4>Pokedex Entry</h4>
+        <span id="current-pokemon-description"></span>
+
+        <!--height and weight-->
+        <div class="row center">
+          <div class="width-100 column center margin-5">
+            <h4>Height</h4>
+            <div
+              id="current-pokemon-height"
+              class="pokemon-info-variable-container"
+            ></div>
+          </div>
+          <div class="width-100 column center margin-5">
+            <h4>Weight</h4>
+            <div
+              id="current-pokemon-weight"
+              class="pokemon-info-variable-container"
+            ></div>
+          </div>
+        </div>
+
+        <!--abilities-->
+        <div class="column">
+          <h4>Abilities</h4>
+          <div class="row">
+            <div
+              id="current-pokemon-abilitiy-0"
+              class="pokemon-info-variable-container"
+            ></div>
+            <div
+              id="current-pokemon-abilitiy-1"
+              class="pokemon-info-variable-container"
+            ></div>
+          </div>
+        </div>
+
+        <!--stats-->
+        <h4>Stats</h4>
+        <div class="row center stats"></div>
+
+        <!--Evolution chain-->
+        <div id="current-pokemon-evolution-chain-container">
+          <h4>Evolution</h4>
+          <div class="row center">
+            <img
+              id="current-pokemon-evolution-0"
+              class="current-pokemon-evolution-image"
+              src=""
+            />
+            <div
+              id="current-pokemon-evolution-level-0"
+              class="current-pokemon-evolution-level-container font-size-12 bold"
+            >
+              Lv. 16
+            </div>
+            <img
+              id="current-pokemon-evolution-1"
+              class="current-pokemon-evolution-image"
+              src=""
+            />
+            <div
+              id="current-pokemon-evolution-level-1"
+              class="current-pokemon-evolution-level-container font-size-12 bold"
+            >
+              Lv. 36
+            </div>
+            <img
+              id="current-pokemon-evolution-2"
+              class="current-pokemon-evolution-image"
+              src=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <!--Empty-->
+      <div id="current-pokemon-empty">
+        <span class="font-size-18">Select a Pokemon<br />to view info.</span>
+      </div>
+    </div>
+
+    <!--Back to top button-->
+    <div id="back-to-top-button" class="hide">
+      <img src="src/arrow-up-icon.png" />
+    </div>
+
+    <!--Loading selected pokemon-->
+    <img
+      id="current-pokemon-loading"
+      src="src/pokeball-icon.png"
+      class="loading-ball"
+    />
+
+    <script src="./javascript/setup.js"></script>
+    <script src="./javascript/pokemon-list.js"></script>
+    <script src="./javascript/pokemon-info.js"></script>
+  </body>
+</html>
